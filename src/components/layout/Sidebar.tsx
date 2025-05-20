@@ -4,10 +4,10 @@ import {
   Users, 
   Sofa, 
   PaintBucket, 
-  Star, 
   LogOut 
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import { useNavigate } from 'react-router-dom';  // <-- import useNavigate
 
 interface SidebarProps {
   currentPage: string;
@@ -16,6 +16,12 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ currentPage, setCurrentPage }) => {
   const { theme } = useTheme();
+  const navigate = useNavigate();  // <-- initialize navigate
+
+  const handleLogout = () => {
+    localStorage.removeItem('admin_token');
+    window.location.href = '/admin-login';
+  };
 
   const navItems = [
     { id: 'dashboard', name: 'Dashboard', icon: <LayoutDashboard size={20} /> },
@@ -52,12 +58,17 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, setCurrentPage }) => {
           </ul>
         </nav>
 
-        {/* <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-          <button className="w-full flex items-center px-4 py-3 rounded-lg text-left text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
-            <span className="mr-3"><LogOut size={20} /></span>
+        <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+          <button
+            onClick={handleLogout}
+            className="w-full flex items-center px-4 py-3 rounded-lg text-left text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+          >
+            <span className="mr-3">
+              <LogOut size={20} />
+            </span>
             <span>Log Out</span>
           </button>
-        </div> */}
+        </div>
       </div>
     </div>
   );

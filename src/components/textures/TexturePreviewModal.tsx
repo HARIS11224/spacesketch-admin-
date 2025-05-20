@@ -11,7 +11,7 @@ interface TexturePreviewModalProps {
     tags: string[];
   };
 }
-const baseURL = 'https://spacesketch-backend-production.up.railway.app/api/textures';  
+const baseURL = 'http://localhost:5000';  
 const TexturePreviewModal: React.FC<TexturePreviewModalProps> = ({ isOpen, onClose, texture }) => {
   if (!isOpen || !texture) return null;
 

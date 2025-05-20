@@ -6,9 +6,11 @@ import Users from './pages/Users';
 import Furniture from './pages/Furniture';
 import Textures from './pages/Textures';
 import Reviews from './pages/Reviews';
+import AdminLogin from './pages/AdminLogin'; // <-- import the login page
 
 function App() {
   const [currentPage, setCurrentPage] = useState('dashboard');
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // <-- add login state
 
   const renderPage = () => {
     switch (currentPage) {
@@ -26,6 +28,10 @@ function App() {
         return <Dashboard />;
     }
   };
+
+  if (!isLoggedIn) {
+    return <AdminLogin onLoginSuccess={() => setIsLoggedIn(true)} />;
+  }
 
   return (
     <ThemeProvider>

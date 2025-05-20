@@ -14,7 +14,7 @@ interface Texture {
   preview: string; // full URL to image
 }
 
-const baseURL = 'https://spacesketch-backend-production.up.railway.app';
+const baseURL = 'http://localhost:5000';
 
 const Textures: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
