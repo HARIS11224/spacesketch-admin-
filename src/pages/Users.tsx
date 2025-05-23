@@ -17,7 +17,7 @@ const Users: React.FC = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/users");
+        const res = await axios.get("https://space-backend-production.up.railway.app/api/users");
         setUsers(res.data);
       } catch (error) {
         console.error("Error fetching users:", error);
