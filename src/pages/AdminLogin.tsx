@@ -15,7 +15,7 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/admin/login', {
+      const res = await axios.post('https://space-backend-production.up.railway.app/api/admin/login', {
         username,
         password
       });
