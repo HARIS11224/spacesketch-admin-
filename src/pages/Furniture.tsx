@@ -20,7 +20,7 @@ const Furniture: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const BASE_URL = 'http://localhost:5000'; // static file server
+  const BASE_URL = 'https://space-backend-production.up.railway.app'; // static file server
 
   useEffect(() => {
     fetchFurnitureItems();
@@ -29,7 +29,7 @@ const Furniture: React.FC = () => {
   const fetchFurnitureItems = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:5000/api/items');
+      const res = await axios.get('https://space-backend-production.up.railway.app/api/items');
       const itemsWithFullImageURL = res.data.map((item: FurnitureItem) => ({
         ...item,
         image: `${BASE_URL}/${item.image}`, // prepend full URL
