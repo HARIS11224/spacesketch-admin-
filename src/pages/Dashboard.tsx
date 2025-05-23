@@ -26,9 +26,9 @@ const Dashboard: React.FC = () => {
     const fetchStats = async () => {
       try {
         const [usersRes, itemsRes, texturesRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/users/count'),
-          axios.get('http://localhost:5000/api/items/count'),
-          axios.get('http://localhost:5000/api/textures/count'),
+          axios.get('https://space-backend-production.up.railway.app/api/users/count'),
+          axios.get('https://space-backend-production.up.railway.app/api/items/count'),
+          axios.get('https://space-backend-production.up.railway.app/api/textures/count'),
         ]);
 
         setStatsData({
